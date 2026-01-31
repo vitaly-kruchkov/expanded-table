@@ -1,22 +1,24 @@
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import {
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  Container,
+  Typography,
+} from "@mui/material";
 import { DataTable } from "../components/table/DataTable";
 
-const theme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
+const theme = createTheme({ palette: { mode: "light" } });
 
-function App() {
+export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div style={{ padding: 24, maxWidth: 1400, margin: "0 auto" }}>
-        <h1 style={{ marginBottom: 16 }}>Таблица данных</h1>
+      <Container maxWidth="xl" sx={{ py: 3 }}>
+        <Typography variant="h5" mb={2}>
+          Таблица данных
+        </Typography>
         <DataTable />
-      </div>
+      </Container>
     </ThemeProvider>
   );
 }
-
-export default App;
