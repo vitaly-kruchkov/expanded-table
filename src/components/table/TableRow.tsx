@@ -1,19 +1,20 @@
-import { TableCell } from "./TableCell";
-import type { TableRow as TableRowType, ColumnConfig } from "../../model/types";
+import { TableRow as MuiRow, TableCell } from "@mui/material";
+import { TableCell as Cell } from "./TableCell";
+import type { TableRow, ColumnConfig } from "../../model/types";
 
-interface TableRowProps {
-  row: TableRowType;
+interface Props {
+  row: TableRow;
   columns: ColumnConfig[];
 }
 
-export function TableRow({ row, columns }: TableRowProps) {
+export function TableRow({ row, columns }: Props) {
   return (
-    <tr>
+    <MuiRow>
       {columns.map((col) => (
-        <td key={col.key} style={{ padding: 4, verticalAlign: "middle" }}>
-          <TableCell column={col} cell={row.cells[col.key]!} />
-        </td>
+        <TableCell key={col.key} sx={{ p: 0.5 }}>
+          <Cell rowId={row.id} column={col} cell={row.cells[col.key]!} />
+        </TableCell>
       ))}
-    </tr>
+    </MuiRow>
   );
 }

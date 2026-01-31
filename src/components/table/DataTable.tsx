@@ -12,16 +12,20 @@ import { useTableStore } from "../../model/tableStore";
 import { TableRow as Row } from "./TableRow";
 
 export function DataTable() {
-  const { rows, columns } = useTableStore();
+  const { rows, columns, saveRows } = useTableStore();
 
-  const hasDirty = rows.some((r) =>
-    Object.values(r.cells).some((c) => c.status === "dirty"),
+  const hasDirty = rows.some((row) =>
+    Object.values(row.cells).some((col) => col.status === "dirty"),
   );
 
   return (
     <Paper>
       <Box p={1} display="flex" justifyContent="flex-end">
-        <Button size="small" variant="contained" disabled={!hasDirty}>
+        <Button
+          size="small"
+          variant="contained"
+          disabled={!hasDirty}
+          onClick={() => saveRows()}>
           Сохранить
         </Button>
       </Box>

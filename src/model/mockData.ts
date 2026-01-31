@@ -88,8 +88,8 @@ export const initialRows: TableRow[] = [
         status: "view",
       },
       created_at: {
-        value: "2024-12-01T10:30:00Z",
-        draft: "2024-12-01T10:30:00Z",
+        value: "2025-12-01T10:30:00Z",
+        draft: "2025-12-01T10:30:00Z",
         status: "view",
       },
       updated_at: {
@@ -152,13 +152,13 @@ export const initialRows: TableRow[] = [
         status: "view",
       },
       created_at: {
-        value: "2024-12-02T14:45:00Z",
-        draft: "2024-12-02T14:45:00Z",
+        value: "2025-12-02T14:45:00Z",
+        draft: "2025-12-02T14:45:00Z",
         status: "view",
       },
       updated_at: {
-        value: "2024-12-03T09:15:00Z",
-        draft: "2024-12-03T09:15:00Z",
+        value: "2025-12-03T09:15:00Z",
+        draft: "2025-12-03T09:15:00Z",
         status: "view",
       },
       tags: {
@@ -208,8 +208,8 @@ export const initialRows: TableRow[] = [
         status: "view",
       },
       created_at: {
-        value: "2024-11-15T08:00:00Z",
-        draft: "2024-11-15T08:00:00Z",
+        value: "2025-11-15T08:00:00Z",
+        draft: "2025-11-15T08:00:00Z",
         status: "view",
       },
       updated_at: {

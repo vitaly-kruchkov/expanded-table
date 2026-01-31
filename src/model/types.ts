@@ -29,3 +29,9 @@ export interface ColumnConfig {
   editable: boolean;
   options?: string[];
 }
+
+export interface CellEditorProps {
+  onApply: () => void;
+  onCancel: () => void;
+  error?: string;
+}

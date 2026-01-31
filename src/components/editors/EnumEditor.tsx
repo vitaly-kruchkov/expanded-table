@@ -18,7 +18,7 @@ export function EnumEditor({
   return (
     <FormControl fullWidth size="small" error={Boolean(error)}>
       <Select
-        inputRef={ref}
+        ref={ref}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onKeyDown={onKeyDown}
