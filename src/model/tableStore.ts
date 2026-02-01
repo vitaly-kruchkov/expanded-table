@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import type { TableRow, TableCell, CellValue, ColumnConfig } from "./types";
 import { validateCellValue } from "../utils/validation";
-import { columns, initialRows } from "./mockData";
+import { columns } from "./mockData";
+import { fetchTable } from "../api/table";
 
 function changeRow(
   rows: TableRow[],
@@ -24,9 +25,12 @@ export const useTableStore = create<{
   setDraft: (rowId: string, columnKey: string, draft: CellValue) => void;
   applyEdit: (rowId: string, columnKey: string) => boolean;
   saveRows: () => Promise<void>;
+  load: () => Promise<void>;
+  isLoading: boolean;
 }>((set) => ({
-  rows: initialRows,
+  rows: [],
   columns: columns,
+  isLoading: false,
 
   startEdit: (rowId, columnKey) => {
     set((state) => {
@@ -129,5 +133,11 @@ export const useTableStore = create<{
         ),
       })),
     }));
+  },
+
+  load: async () => {
+    set({ isLoading: true });
+    const rows = await fetchTable();
+    set({ rows, isLoading: false });
   },
 }));

@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:api": "cd apps/api && npm run dev",
+    "dev:web": "vite",
+    "dev": "concurrently \"npm:dev:api\" \"npm:dev:web\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -16,10 +18,10 @@
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
     "@mui/x-date-pickers": "^8.26.0",
+    "concurrently": "^9.2.1",
     "date-fns": "^4.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "zod": "^4.3.6",
     "zustand": "^5.0.10"
   },
   "devDependencies": {

@@ -14,9 +14,15 @@ import { TableRow as Row } from "./TableRow";
 export function DataTable() {
   const { rows, columns, saveRows } = useTableStore();
 
-  const hasDirty = rows.some((row) =>
-    Object.values(row.cells).some((col) => col.status === "dirty"),
-  );
+  const safeRows = rows || [];
+  const safeColumns = columns || [];
+
+  const hasDirty = safeRows.some((row) => {
+    if (!row || !row.cells) return false;
+    return Object.values(row.cells).some(
+      (col) => col && col.status === "dirty"
+    );
+  });
 
   return (
     <Paper>
@@ -33,7 +39,7 @@ export function DataTable() {
       <Table size="small" stickyHeader>
         <TableHead>
           <TableRow>
-            {columns.map((col) => (
+            {safeColumns.map((col) => (
               <TableCell key={col.key} sx={{ fontWeight: 600 }}>
                 {col.title}
               </TableCell>
@@ -42,8 +48,8 @@ export function DataTable() {
         </TableHead>
 
         <TableBody>
-          {rows.map((row) => (
-            <Row key={row.id} row={row} columns={columns} />
+          {safeRows.map((row) => (
+            <Row key={row.id} row={row} columns={safeColumns} />
           ))}
         </TableBody>
       </Table>

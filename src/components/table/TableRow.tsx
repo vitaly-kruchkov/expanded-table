@@ -8,13 +8,26 @@ interface Props {
 }
 
 export function TableRow({ row, columns }: Props) {
+  if (!row || !row.cells) {
+    return (
+      <MuiRow>
+        <TableCell colSpan={columns.length} align="center">
+          Некорректные данные строки
+        </TableCell>
+      </MuiRow>
+    );
+  }
   return (
     <MuiRow>
-      {columns.map((col) => (
-        <TableCell key={col.key} sx={{ p: 0.5 }}>
-          <Cell rowId={row.id} column={col} cell={row.cells[col.key]!} />
-        </TableCell>
-      ))}
+      {columns.map((col) => {
+        const cell = row.cells[col.key];
+
+        return (
+          <TableCell key={col.key} sx={{ p: 0.5 }}>
+            <Cell rowId={row.id} column={col} cell={cell} />
+          </TableCell>
+        );
+      })}
     </MuiRow>
   );
 }

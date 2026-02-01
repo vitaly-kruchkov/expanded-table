@@ -1,4 +1,4 @@
-import type { ColumnConfig } from "./types";
+import type { ColumnConfig } from "./table.types";
 
 export const columns: ColumnConfig[] = [
   {
