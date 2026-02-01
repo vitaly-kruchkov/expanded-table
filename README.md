@@ -33,11 +33,13 @@ npm dev
 
 ### 4. Technologies
 
+```
 • React
 • Next.js (for API)
 • MUI
 • Date fns
 • Zustand
+```
 
 ### 5. Main Functionality
 
@@ -45,17 +47,21 @@ npm dev
 
 ## Various data types:
 
+```
 • string
 • number with support for integer and fractional values
 • enum with a dropdown list
 • Dates and times (timestamp)
 • Arrays - tags
 • Objects - JSON editor
+```
 
 ## 6. Notes
 
+```
 If more time is available:
 • Add backend validation, describe additional requests
 • Use other technologies for writing API requests
 • Add pagination
 • Add sorting by ascending and descending order of columns
+```
