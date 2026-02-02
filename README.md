@@ -27,6 +27,8 @@ cd apps/api && npm install
 
 ### 3. Deployment
 
+Create a .env.development file with link in Next.js API
+
 ```bash
 npm dev
 ```

@@ -1,6 +1,6 @@
 import type { TableRow } from "../model/types";
 
-const API_URL = "http://localhost:3000/api/table";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchTable(): Promise<TableRow[]> {
   const res = await fetch(API_URL);
