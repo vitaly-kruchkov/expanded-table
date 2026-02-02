@@ -1,6 +1,6 @@
 # A data table with the ability to edit data.
 
----
+[Demo](https://expanded-table-pink.vercel.app/)
 
 ## ⚙️ Local Development
 
